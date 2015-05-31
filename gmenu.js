@@ -27,21 +27,11 @@ var gmenu = function gmenu( name, options ) {
 	var gmenuEvent = function gmenuEvent( event ) {
 		var item = event.target;
 
-<<<<<<< HEAD
 		// if burger was clicked
 		if( item === burgerNode ) {
 
 			if( currentMenu === undefined ) {
 				api.openMenu( menuNode );
-=======
-		// if submenu toggler was clicked
-		if( item.classList.contains( o.submenuClass ) ) {
-			event.preventDefault() ;
-				
-			// if what clicked is currently active
-			if ( item.classList.contains( o.activeClass ) ) {
-				public.closeMenu();
->>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 			} else {
 				api.closeAll();
 			}
@@ -49,7 +39,6 @@ var gmenu = function gmenu( name, options ) {
 			return 1;
 		}
 
-<<<<<<< HEAD
 		// if submenu toggler was clicked
 		if( item.classList.contains( o.submenuClass ) ) {
 			event.preventDefault() ;
@@ -57,13 +46,6 @@ var gmenu = function gmenu( name, options ) {
 			// if what clicked is currently active
 			if ( item.classList.contains( o.activeClass ) ) {
 				api.closeAll( item );
-=======
-		// if burger was clicked
-		if( item === burgerNode ) {
-
-			if( currentMenu === undefined ) {
-				public.openMenu( menuNode );
->>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 			} else {
 				api.openMenu( item );
 			}
@@ -97,10 +79,6 @@ var gmenu = function gmenu( name, options ) {
 		if( o.scrollTo >= 0 ) {
 			window.scrollTo( 0, o.scrollTo );
 		}
-<<<<<<< HEAD
-=======
-		menu.classList.add(o.activeClass);
->>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 
 		var openedSubmenus = menu.getElementsByClassName( o.activeClass );
 		if( openedSubmenus.length > 0 ) {
@@ -110,7 +88,6 @@ var gmenu = function gmenu( name, options ) {
 		currentMenu = menu;
 	};
 
-<<<<<<< HEAD
 	// closes last opened menu
 	// returns 1 - if closed menu was same as argument until
 	// or there was no opened menu
@@ -121,16 +98,6 @@ var gmenu = function gmenu( name, options ) {
 
 		if ( until === undefined ) {
 			until = menuNode;
-=======
-	public.closeMenu = function closeMenu(  ) {
-		currentMenu.classList.remove( o.activeClass );
-		if( currentMenu !== menuNode ) {
-			var parentMenu = currentMenu.parentNode.parentNode;
-			if ( parentMenu.classList.contains( o.activeClass ) ) {
-				currentMenu = currentMenu.parentNode.parentNode;
-				return 1;
-			}
->>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 		}
 
 		currentMenu.classList.remove( o.activeClass );
