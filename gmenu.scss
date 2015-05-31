@@ -176,6 +176,7 @@ $desktop-size: 992px;
 
 		li {
 			&.gmenu-active {
+<<<<<<< HEAD
 				&:after {
 					display: none;
 				}
@@ -188,6 +189,35 @@ $desktop-size: 992px;
 					position: absolute;
 					right: 0;
 					margin-right: 0;
+=======
+				&::after {
+					display: none;
+				}
+			}
+			&.gmenu-submenu {
+				padding-right: 3.375em;
+
+				&::before {
+					position: absolute;
+					right: 0;
+					margin-right: 0;
+				}
+			}
+
+		}
+
+		// first submenu, for min-width at least as menu item
+		&:hover, &.gmenu-active {
+			> ul {
+				li {
+					&:hover, &.gmenu-active {
+						> ul {
+							min-width: 100%;
+							width: auto;
+							margin-left: 0;
+						}
+					}
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 				}
 			}
 		}
@@ -239,11 +269,34 @@ $desktop-size: 992px;
 				}
 			}
 
+<<<<<<< HEAD
 			ul {
 				position: absolute;
 				a {
 					display: block;
 					float: none;
+=======
+@media (min-width: $desktop-size) {
+	.gmenu {
+		li.gmenu-submenu {
+			padding-right: 0;
+
+			&::before {
+				display: none;
+			}
+
+			> a {
+				position: relative;
+				padding-right: 2em;
+
+				&::after {
+					position: absolute;
+					right: 0em;
+					padding: 0 1em;
+					opacity: 0.25;
+					content: '+';
+					background-color: transparent;
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 				}
 			}
 

@@ -99,6 +99,16 @@
   .gmenu.gmenu-active > ul {
     z-index: 10;
     display: block; }
+<<<<<<< HEAD
+=======
+    .gmenu.gmenu-active > ul li.gmenu-active > a {
+      background-color: #161635; }
+    .gmenu.gmenu-active > ul li.gmenu-active > ul {
+      z-index: 10;
+      margin-left: 10%;
+      width: 90%;
+      display: block; }
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 
 @media (min-width: 400px) {
   .gmenu, .gmenu.gmenu-active {
@@ -114,7 +124,11 @@
     background: transparent; }
   .gmenu .gmenu-burger {
     display: none; }
+<<<<<<< HEAD
   .gmenu li.gmenu-active:after {
+=======
+  .gmenu li.gmenu-active::after {
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
     display: none; }
   .gmenu li.gmenu-submenu {
     padding-right: 3.375em; }
@@ -122,6 +136,13 @@
       position: absolute;
       right: 0;
       margin-right: 0; }
+<<<<<<< HEAD
+=======
+  .gmenu:hover > ul li:hover > ul, .gmenu:hover > ul li.gmenu-active > ul, .gmenu.gmenu-active > ul li:hover > ul, .gmenu.gmenu-active > ul li.gmenu-active > ul {
+    min-width: 100%;
+    width: auto;
+    margin-left: 0; }
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
   .gmenu ul {
     display: block;
     position: relative;
@@ -129,14 +150,25 @@
   .gmenu > ul li {
     position: relative; }
     .gmenu > ul li:hover > ul, .gmenu > ul li.gmenu-active > ul {
+<<<<<<< HEAD
       z-index: 10;
+=======
+      z-index: 5;
+      display: block; }
+  .gmenu > ul ul {
+    position: absolute; }
+    .gmenu > ul ul a {
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
       display: block;
       width: auto;
       margin-left: 0; }
   .gmenu > ul > li {
     float: left; }
     .gmenu > ul > li:hover > ul, .gmenu > ul > li.gmenu-active > ul {
+<<<<<<< HEAD
       min-width: 100%;
+=======
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
       top: 100%;
       display: block;
       position: absolute; }
@@ -144,11 +176,30 @@
       font-weight: normal;
       display: none; }
       .gmenu > ul > li ul li:hover ul, .gmenu > ul > li ul li.gmenu-active ul {
+<<<<<<< HEAD
         left: 100%; }
   .gmenu > ul ul {
     position: absolute; }
     .gmenu > ul ul a {
       display: block;
       float: none; } }
+=======
+        left: 100%; } }
+@media (min-width: 992px) {
+  .gmenu li.gmenu-submenu {
+    padding-right: 0; }
+    .gmenu li.gmenu-submenu::before {
+      display: none; }
+    .gmenu li.gmenu-submenu > a {
+      position: relative;
+      padding-right: 2em; }
+      .gmenu li.gmenu-submenu > a::after {
+        position: absolute;
+        right: 0em;
+        padding: 0 1em;
+        opacity: 0.25;
+        content: '+';
+        background-color: transparent; } }
+>>>>>>> 7b76d1b6760a573d543f7343f3cd75f8706c8b3d
 
 /*# sourceMappingURL=gmenu.css.map */

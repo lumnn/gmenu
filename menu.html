@@ -5,15 +5,38 @@
 	<title>Menu test</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<style>
+	*{ box-sizing: border-box; }
+	body { oveflow-x: hidden; font-family: 'Open Sans', sans; color: #111; padding: 0 5%; }
+	body > * {
+		max-width: 100%; overflow: hidden;
+	}
+	h1 { font-size: 3.4em; }
+	p { max-width: 600px; }
+	code { background: #dde; white-space: pre; display: block; padding: 3%; overflow-x: scroll; }
+	p code { display: inline; padding: 3px; }
+	.big { font-size: 1.5em; }
+	.info { padding-left: 1em; color: #667; font-style: italic; border-left: 1px solid #111; }
+</style>
+
+
 	<!-- CSS file -->
 	<link rel="stylesheet" type="text/css" href="gmenu.css">
+
+<!-- HTML5 shim, Respond.js for IE8 support of HTML5 elements, media queries -->
+<!--[if lt IE 9]>
+  	<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  	<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
 
 </head>
 <body>
 
 	<!-- Complex menu example -->
 	<div id='gmenu' class='gmenu gmenu-submenu'>
-		<a href='#' class='gmenu-burger'>= Menu</a>
+		<a href='#' class='gmenu-burger'>=</a>
 		<ul>
 			<li>
 				<a href=''>Single</a>
@@ -24,8 +47,12 @@
 					<li>
 						<a href=''>Albert</a>
 					</li>
-					<li>
-						<a href=''>Bartosz</a>
+					<li class='gmenu-submenu'>
+						<a href='#'>Bartosz</a>
+						<ul>
+							<li><a href=''>S1</a></li>
+							<li><a href=''>S2</a></li>
+						</ul>
 					</li>
 					<li>
 						<a href=''>Czesław</a>
@@ -147,7 +174,7 @@
 				<a href=''>Sixth</a>
 			</li>
 			<li class='gmenu-submenu'>
-				<a href=''>Wide example - wider - wider</a>
+				<a href=''>Wide example - wider - wider - mooooooooooore</a>
 				<ul>
 					<li>
 						<a href=''>Kanapka</a>
@@ -203,30 +230,71 @@
 	</div>
 	<!-- End of complex example -->
 
-	<h1 style='font-size: 3.4em'>GMENU</h1>
-	<a href='#' class='gmenu-toggle-gmenu' >= Open menu</a>
+	<article>
+		<h1>GMENU</h1>
+		<p class='big' >
+			Simple, pure JS solution for responsive menu.<br/>It works perfectly on touch and click devices with different screen sizes.
+		</p>
+	</article>
+	<p class='info'>
+		For IE9 there is one required dependency, and for IE8 another two. Anyway in IE8 script wont't run - so better hide it in 
+		IE comment, but <b>menu still uses CSS hover selector to open submenus</b>.  There is probably nobody using that browser on device with touch.
+	</p>
+
 	<h2>Feautures</h2>
 	<ul>
 		<li>Lightweight - 4kB</li>
-		<li>Simple</li>
 		<li>Responsive</li>
 		<li>Touch friendly</li>
 		<li>Fast</li>
 		<li>Multi-level support</li>
+		<li>Submenus with link</li>
 	</ul>
 
+	<h3>Animations and other fancy things</h3>
+	<p>
+	It's up to you to add them, GMenu provides only basic functionality.
+	</p>
+
+	<h2>How it works?</h2>
+	<p>For tablet size and desktop size there is used :hover selector to open menus.</p>
+	<p>For tablet and phones there is displayed <code>a.gmenu-burger</code>. Clicking it adds class <code>gmenu-active</code> to <code>.gmenu</code>. Another click removes all <code>gmenu-active</code> classes.
+	</p>
+	<p class="info">When top-level menu has <code>.gmenu-active</code> class, <code>.gmenu-burger:after</code> is used to display "Close menu" box</p> 
+	<p><code>li.gmenu-submenu</code> tells script that this element has submenu. Clicking on it toggles <code>.gmenu-active</code> classes</p>
+<pre>
+Fig. 1
+Menu item with submenu
+
+             +-----+----> li:before*
+             v     v
++------------------+----> li element
+v                  v
+
+
++------------+-----+
+|  Category  |  +  |   
++------------+-----+
+
+
+^            ^
++------------+----------> a element
+
+
+</pre>
+	<p class="info">* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...</p>
+
+	<p><code>li</code> elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of <code>li.gmenu-submenu</code> with padding or like I did with <code>:before</code></p>
+
 	<h2>Options</h2>
-	<code><pre>
-var gmenu = gmenu('gmenu', {
+	<code>var gmenu = gmenu('gmenu', {
 	scrollTo: 0,
 
 	activeClass: 'gmenu-active',
 	submenuClass: 'gmenu-submenu',
 	burgerClass: 'gmenu-burger',
 	togglesClass: 'gmenu-toggle-' + name,
-});
-
-	</pre></code>
+});</code>
 
 	<!-- Simplest example -->
 	<div id='gmenu2' class='gmenu gmenu-submenu'>
@@ -246,10 +314,19 @@ var gmenu = gmenu('gmenu', {
 	<!-- End of simplest example -->
 
 
-<!-- Module link -->
-<script type="text/javascript" src='gmenu.js'></script>
-<!-- end modile -->
 
+
+<!-- Module link -->
+<!-- ########### -->
+
+<!-- IE dependency -->
+<!--[if lte IE 9]>
+	<script type="text/javascript" src='classList.min.js'></script>
+<![endif]-->
+<script type="text/javascript" src='gmenu.js'></script>
+
+<!-- end modile -->
+<!-- ########### -->
 
 <!-- Enabling menus -->
 
