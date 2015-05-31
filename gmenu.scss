@@ -1,4 +1,4 @@
-$primary-color: #111122;
+$primary-color: #070711;
 $secondary-color: #eee;
 
 $tablet-size: 768px;
@@ -181,21 +181,29 @@ body {
 			display: none;
 		}
 
-		li.gmenu-submenu {
-			padding-right: 3.375em;
-
-			&::before {
-				position: absolute;
-				right: 0;
-				margin-right: 0;
+		li {
+			&.gmenu-active {
+				&::after {
+					display: none;
+				}
 			}
+			&.gmenu-submenu {
+				padding-right: 3.375em;
+
+				&::before {
+					position: absolute;
+					right: 0;
+					margin-right: 0;
+				}
+			}
+
 		}
 
 		// first submenu, for min-width at least as menu item
-		&:hover {
+		&:hover, &.gmenu-active {
 			> ul {
 				li {
-					&:hover {
+					&:hover, &.gmenu-active {
 						> ul {
 							min-width: 100%;
 							width: auto;
@@ -216,7 +224,7 @@ body {
 			li {
 				position: relative;
 
-				&:hover {
+				&:hover, &.gmenu-active {
 					> ul {
 						z-index: 5;
 						display: block;
@@ -235,7 +243,7 @@ body {
 			> li {
 				float: left;
 
-				&:hover {
+				&:hover, &.gmenu-active {
 					> ul {
 						top: 100%;
 						display: block;
@@ -252,7 +260,7 @@ body {
 					display: none;
 
 					li {
-						&:hover {
+						&:hover, &.gmenu-active {
 							ul {
 								left:100%;
 							}
@@ -266,7 +274,9 @@ body {
 
 @media (min-width: $desktop-size) {
 	.gmenu {
-		.gmenu-submenu {
+		li.gmenu-submenu {
+			padding-right: 0;
+
 			&::before {
 				display: none;
 			}

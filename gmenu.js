@@ -22,10 +22,12 @@ var gmenu = function gmenu( name, options ) {
 	var gmenuEvent = function gmenuEvent( event ) {
 		var item = event.target;
 
+		// if submenu toggler was clicked
 		if( item.classList.contains( o.submenuClass ) ) {
 			event.preventDefault() ;
-
-			if ( item === currentMenu ) {
+				
+			// if what clicked is currently active
+			if ( item.classList.contains( o.activeClass ) ) {
 				public.closeMenu();
 			} else {
 				if( item === menuNode ) {
@@ -38,6 +40,7 @@ var gmenu = function gmenu( name, options ) {
 			return 1;
 		}
 
+		// if burger was clicked
 		if( item === burgerNode ) {
 
 			if( currentMenu === undefined ) {
@@ -62,14 +65,23 @@ var gmenu = function gmenu( name, options ) {
 			window.scrollTo( 0, o.scrollTo );
 		}
 		menu.classList.add(o.activeClass);
+
+		var openedSubmenus = menu.getElementsByClassName( o.activeClass );
+		if( openedSubmenus.length > 0 ) {
+			menu = openedSubmenus[ openedSubmenus.length - 1 ];
+		}
+
 		currentMenu = menu;
 	};
 
-	public.closeMenu = function closeMenu() {
+	public.closeMenu = function closeMenu(  ) {
 		currentMenu.classList.remove( o.activeClass );
-		if(currentMenu.id !== name) {
-			currentMenu = currentMenu.parentNode.parentNode;
-			return 1;
+		if( currentMenu !== menuNode ) {
+			var parentMenu = currentMenu.parentNode.parentNode;
+			if ( parentMenu.classList.contains( o.activeClass ) ) {
+				currentMenu = currentMenu.parentNode.parentNode;
+				return 1;
+			}
 		}
 
 		currentMenu = undefined;
