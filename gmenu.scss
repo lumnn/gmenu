@@ -1,0 +1,278 @@
+$primary-color: #111122;
+$secondary-color: #eee;
+
+$expanded-size: 768px;
+
+body {
+	font-family: 'Open Sans';
+	height: 100%;
+}
+
+.gmenu {
+	color: $secondary-color;
+
+	a {
+		background-color: $primary-color;
+		color: $secondary-color;
+		margin: auto;
+		font-weight: bold;
+		text-decoration: none;
+		padding: 1em;
+		outline: 0;
+		display: block;
+
+		&:hover {
+			background-color: lighten($primary-color, 10);
+		}
+
+		&:active {
+			background-color: darken($primary-color, 10);
+			color: darken($secondary-color, 10);
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	li {
+		display: block;
+		list-style: none;
+
+		a {
+			display: block;
+		}
+
+		&.gmenu-active {
+			&::after {
+				content: '';
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 5;
+			    -webkit-touch-callout: none;
+			    -webkit-user-select: none;
+			    -khtml-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    background: rgba( 0, 0 , 0 , .5);
+			}
+		}
+
+		&.gmenu-submenu {
+			&::before {
+				cursor: pointer;
+				text-align: center;
+				float: left;
+				width: 1.375em;
+				content: '+';
+				padding: 1em;
+				margin-right: 1em;
+				background-color: lighten($primary-color, 10);
+			}
+		}
+	}
+
+	.gmenu-burger {
+		min-width: 1.4em;
+		text-align: center;
+		z-index: 20;
+		display: inline-block;
+	}
+
+	&.gmenu-active {
+
+		&::after {
+			content: '';
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 5;
+		    -webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		    -khtml-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    background: rgba( 0, 0 , 0 , .5);
+		}
+
+		.gmenu-burger {
+			z-index: 20;
+			&::after {
+				content: 'Close menu';
+				background-color: darken($primary-color, 10);
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				padding: 1em 0;
+				width: auto;
+				z-index: 20;
+				cursor: pointer;
+			}
+
+		}
+
+		ul {
+			background-color: darken($primary-color, 10);
+			padding-top: 3.375em;
+			// line height is 1.375 plus 1em paddings
+		}
+
+		> ul {
+			z-index: 10;
+			display: block;
+
+			li {
+
+				&.gmenu-active {
+					> a {
+						background-color: lighten($primary-color, 10);
+					}
+					> ul {
+						z-index: 10;
+						margin-left: 10%;
+						width: 90%;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+@media (min-width: $expanded-size) {
+	.gmenu {
+		// clearfix
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+		zoom: 1;
+
+		&.gmenu-active {
+			&::after {
+				content: '';
+				display: table;
+				clear: both;
+				position: static;
+			}
+
+			ul {
+				padding: 0;
+				background: transparent;
+			}
+		}
+
+		.gmenu-burger {
+			display: none;
+		}
+
+		// first submenu, for min-width at least as menu item
+		&:hover {
+			> ul {
+				li {
+					&:hover {
+						> ul {
+							min-width: 100%;
+							width: auto;
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+
+		ul {
+			display: block;
+			position: static;
+			width: auto;
+		}
+
+		.gmenu-submenu {
+			&::before {
+				display: none;
+			}
+
+			> a {
+				position: relative;
+				padding-right: 2em;
+
+				&::after {
+					position: absolute;
+					right: 0em;
+					padding: 0 1em;
+					opacity: 0.25;
+					content: '+';
+					background-color: transparent;
+				}
+			}
+		}
+
+		> ul {
+			li {
+				position: relative;
+
+				&:hover {
+					> ul {
+						z-index: 5;
+						display: block;
+					}
+				}
+			}
+
+			ul {
+				position: absolute;
+				a {
+					display: block;
+					float: none;
+				}
+			}
+
+			> li {
+				float: left;
+
+				&:hover {
+					> ul {
+						top: 100%;
+						display: block;
+						position: absolute;
+					}
+
+					ul {
+						
+					}
+				}
+
+				ul {
+					font-weight: normal;
+					display: none;
+
+					li {
+						&:hover {
+							ul {
+								left:100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

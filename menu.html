@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>Menu test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS file -->
+	<link rel="stylesheet" type="text/css" href="gmenu.css">
+
+</head>
+<body style="padding: 0 20%;">
+
+	<!-- Complex menu example -->
+	<div id='gmenu' class='gmenu gmenu-submenu'>
+		<a href='#' class='gmenu-burger'>= Menu</a>
+		<ul>
+			<li>
+				<a href=''>Single</a>
+			</li>
+			<li class='gmenu-submenu'>
+				<a href=''>Big</a>
+				<ul>
+					<li>
+						<a href=''>Albert</a>
+					</li>
+					<li>
+						<a href=''>Bartosz</a>
+					</li>
+					<li>
+						<a href=''>Czesław</a>
+					</li>
+					<li class='gmenu-submenu'>
+						<a href=''>Dominik</a>
+						<ul>
+							<li>
+								<a href=''>Kanapka</a>
+							</li>
+							<li class='gmenu-submenu'>
+								<a href=''>Telewizor</a>
+								<ul>
+									<li>
+										<a href=''>Albert</a>
+									</li>
+									<li class='gmenu-submenu'>
+										<a href=''>Bartosz</a>
+										<ul>
+											<li>
+												<a href=''>Kanapka</a>
+											</li>
+											<li>
+												<a href=''>Góra!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Cover!!</a>
+											</li>
+											<li>
+												<a href=''>Ostatni!!</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href=''>Czesław</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href=''>Perkusja</a>
+							</li>
+							<li>
+								<a href=''>Rower</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href=''>Edward</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href=''>Third</a>
+			</li>
+			<li>
+				<a href=''>Fourth</a>
+			</li>
+			<li>
+				<a href=''>Fifth</a>
+			</li>
+			<li>
+				<a href=''>Sixth</a>
+			</li>
+			<li class='gmenu-submenu'>
+				<a href=''>Wide example - wider - wider</a>
+				<ul>
+					<li>
+						<a href=''>Kanapka</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>1000!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Cover!!</a>
+					</li>
+					<li>
+						<a href=''>Ostatni!!</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!-- End of complex example -->
+
+	<h1 style='font-size: 3.4em'>GMENU</h1>
+	<a href='#' class='gmenu-toggle-gmenu' >= Open menu</a>
+	<h2>Feautures</h2>
+	<ul>
+		<li>Lightweight - 4kB</li>
+		<li>Simple</li>
+		<li>Responsive</li>
+		<li>Touch friendly</li>
+		<li>Fast</li>
+		<li>Multi-level support</li>
+	</ul>
+
+	<h2>Options</h2>
+	<code><pre>
+var gmenu = gmenu('gmenu', {
+	scrollTo: 0,
+
+	activeClass: 'gmenu-active',
+	submenuClass: 'gmenu-submenu',
+	burgerClass: 'gmenu-burger',
+	togglesClass: 'gmenu-toggle-' + name,
+});
+
+	</pre></code>
+
+	<!-- Simplest example -->
+	<div id='gmenu2' class='gmenu gmenu-submenu'>
+		<a class='gmenu-burger' href='#'>One level menu example</a>
+		<ul>
+			<li>
+				<a href=''>Jeden</a>
+			</li>
+			<li>
+				<a href=''>Dwa</a>
+			</li>
+			<li>
+				<a href=''>Trzy</a>
+			</li>
+		</ul>
+	</div>
+	<!-- End of simplest example -->
+
+
+<!-- Module link -->
+<script type="text/javascript" src='gmenu.js'></script>
+<!-- end modile -->
+
+
+<!-- Enabling menus -->
+
+	<!-- Complex menu -->
+	<script type="text/javascript">
+		var g = gmenu('gmenu');
+	</script>
+
+	<!-- Simple -->
+	<script type="text/javascript">
+		gmenu('gmenu2');
+	</script>
+
+</body>
+</html>
