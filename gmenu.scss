@@ -1,7 +1,8 @@
 $primary-color: #111122;
 $secondary-color: #eee;
 
-$expanded-size: 768px;
+$tablet-size: 768px;
+$desktop-size: 992px;
 
 body {
 	font-family: 'Open Sans';
@@ -156,24 +157,20 @@ body {
 	
 }
 
-@media (min-width: $expanded-size) {
+@media (min-width: $tablet-size) {
 	.gmenu {
 		// clearfix
-		&::after {
-			content: '';
-			display: table;
-			clear: both;
-		}
-		zoom: 1;
-
-		&.gmenu-active {
+		&, &.gmenu-active {
 			&::after {
 				content: '';
 				display: table;
 				clear: both;
 				position: static;
 			}
+			zoom: 1;
+		}
 
+		&.gmenu-active {
 			ul {
 				padding: 0;
 				background: transparent;
@@ -182,6 +179,16 @@ body {
 
 		.gmenu-burger {
 			display: none;
+		}
+
+		li.gmenu-submenu {
+			padding-right: 3.375em;
+
+			&::before {
+				position: absolute;
+				right: 0;
+				margin-right: 0;
+			}
 		}
 
 		// first submenu, for min-width at least as menu item
@@ -203,26 +210,6 @@ body {
 			display: block;
 			position: static;
 			width: auto;
-		}
-
-		.gmenu-submenu {
-			&::before {
-				display: none;
-			}
-
-			> a {
-				position: relative;
-				padding-right: 2em;
-
-				&::after {
-					position: absolute;
-					right: 0em;
-					padding: 0 1em;
-					opacity: 0.25;
-					content: '+';
-					background-color: transparent;
-				}
-			}
 		}
 
 		> ul {
@@ -271,6 +258,30 @@ body {
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $desktop-size) {
+	.gmenu {
+		.gmenu-submenu {
+			&::before {
+				display: none;
+			}
+
+			> a {
+				position: relative;
+				padding-right: 2em;
+
+				&::after {
+					position: absolute;
+					right: 0em;
+					padding: 0 1em;
+					opacity: 0.25;
+					content: '+';
+					background-color: transparent;
 				}
 			}
 		}

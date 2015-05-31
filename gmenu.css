@@ -105,62 +105,65 @@ body {
       display: block; }
 
 @media (min-width: 768px) {
-  .gmenu {
+  .gmenu, .gmenu.gmenu-active {
     zoom: 1; }
-    .gmenu::after {
-      content: '';
-      display: table;
-      clear: both; }
-    .gmenu.gmenu-active::after {
+    .gmenu::after, .gmenu.gmenu-active::after {
       content: '';
       display: table;
       clear: both;
       position: static; }
-    .gmenu.gmenu-active ul {
-      padding: 0;
-      background: transparent; }
-    .gmenu .gmenu-burger {
-      display: none; }
-    .gmenu:hover > ul li:hover > ul {
-      min-width: 100%;
-      width: auto;
-      margin-left: 0; }
-    .gmenu ul {
+  .gmenu.gmenu-active ul {
+    padding: 0;
+    background: transparent; }
+  .gmenu .gmenu-burger {
+    display: none; }
+  .gmenu li.gmenu-submenu {
+    padding-right: 3.375em; }
+    .gmenu li.gmenu-submenu::before {
+      position: absolute;
+      right: 0;
+      margin-right: 0; }
+  .gmenu:hover > ul li:hover > ul {
+    min-width: 100%;
+    width: auto;
+    margin-left: 0; }
+  .gmenu ul {
+    display: block;
+    position: static;
+    width: auto; }
+  .gmenu > ul li {
+    position: relative; }
+    .gmenu > ul li:hover > ul {
+      z-index: 5;
+      display: block; }
+  .gmenu > ul ul {
+    position: absolute; }
+    .gmenu > ul ul a {
       display: block;
-      position: static;
-      width: auto; }
-    .gmenu .gmenu-submenu::before {
-      display: none; }
-    .gmenu .gmenu-submenu > a {
-      position: relative;
-      padding-right: 2em; }
-      .gmenu .gmenu-submenu > a::after {
-        position: absolute;
-        right: 0em;
-        padding: 0 1em;
-        opacity: 0.25;
-        content: '+';
-        background-color: transparent; }
-    .gmenu > ul li {
-      position: relative; }
-      .gmenu > ul li:hover > ul {
-        z-index: 5;
-        display: block; }
-    .gmenu > ul ul {
+      float: none; }
+  .gmenu > ul > li {
+    float: left; }
+    .gmenu > ul > li:hover > ul {
+      top: 100%;
+      display: block;
       position: absolute; }
-      .gmenu > ul ul a {
-        display: block;
-        float: none; }
-    .gmenu > ul > li {
-      float: left; }
-      .gmenu > ul > li:hover > ul {
-        top: 100%;
-        display: block;
-        position: absolute; }
-      .gmenu > ul > li ul {
-        font-weight: normal;
-        display: none; }
-        .gmenu > ul > li ul li:hover ul {
-          left: 100%; } }
+    .gmenu > ul > li ul {
+      font-weight: normal;
+      display: none; }
+      .gmenu > ul > li ul li:hover ul {
+        left: 100%; } }
+@media (min-width: 992px) {
+  .gmenu .gmenu-submenu::before {
+    display: none; }
+  .gmenu .gmenu-submenu > a {
+    position: relative;
+    padding-right: 2em; }
+    .gmenu .gmenu-submenu > a::after {
+      position: absolute;
+      right: 0em;
+      padding: 0 1em;
+      opacity: 0.25;
+      content: '+';
+      background-color: transparent; } }
 
 /*# sourceMappingURL=gmenu.css.map */
