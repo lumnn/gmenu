@@ -1,13 +1,8 @@
-$primary-color: #111122;
+$primary-color: #070711;
 $secondary-color: #eee;
 
-$tablet-size: 768px;
+$tablet-size: 400px;
 $desktop-size: 992px;
-
-body {
-	font-family: 'Open Sans';
-	height: 100%;
-}
 
 .gmenu {
 	color: $secondary-color;
@@ -51,7 +46,7 @@ body {
 		}
 
 		&.gmenu-active {
-			&::after {
+			&:after {
 				content: '';
 				display: block;
 				position: fixed;
@@ -68,10 +63,21 @@ body {
 			    user-select: none;
 			    background: rgba( 0, 0 , 0 , .5);
 			}
+
+			> a {
+				background-color: lighten($primary-color, 10);
+			}
+			> ul {
+				z-index: 10;
+				margin-left: 10%;
+				width: 90%;
+				display: block;
+			}
+
 		}
 
 		&.gmenu-submenu {
-			&::before {
+			&:before {
 				cursor: pointer;
 				text-align: center;
 				float: left;
@@ -93,7 +99,8 @@ body {
 
 	&.gmenu-active {
 
-		&::after {
+		// Curtain
+		&:after {
 			content: '';
 			display: block;
 			position: fixed;
@@ -113,7 +120,7 @@ body {
 
 		.gmenu-burger {
 			z-index: 20;
-			&::after {
+			&:after {
 				content: 'Close menu';
 				background-color: darken($primary-color, 10);
 				position: absolute;
@@ -137,21 +144,6 @@ body {
 		> ul {
 			z-index: 10;
 			display: block;
-
-			li {
-
-				&.gmenu-active {
-					> a {
-						background-color: lighten($primary-color, 10);
-					}
-					> ul {
-						z-index: 10;
-						margin-left: 10%;
-						width: 90%;
-						display: block;
-					}
-				}
-			}
 		}
 	}
 	
@@ -161,7 +153,7 @@ body {
 	.gmenu {
 		// clearfix
 		&, &.gmenu-active {
-			&::after {
+			> ul:after {
 				content: '';
 				display: table;
 				clear: both;
@@ -172,6 +164,7 @@ body {
 
 		&.gmenu-active {
 			ul {
+				z-index: 10;
 				padding: 0;
 				background: transparent;
 			}
@@ -181,34 +174,27 @@ body {
 			display: none;
 		}
 
-		li.gmenu-submenu {
-			padding-right: 3.375em;
-
-			&::before {
-				position: absolute;
-				right: 0;
-				margin-right: 0;
+		li {
+			&.gmenu-active {
+				&:after {
+					display: none;
+				}
 			}
-		}
 
-		// first submenu, for min-width at least as menu item
-		&:hover {
-			> ul {
-				li {
-					&:hover {
-						> ul {
-							min-width: 100%;
-							width: auto;
-							margin-left: 0;
-						}
-					}
+			&.gmenu-submenu {
+				padding-right: 3.375em;
+
+				&:before {
+					position: absolute;
+					right: 0;
+					margin-right: 0;
 				}
 			}
 		}
 
 		ul {
 			display: block;
-			position: static;
+			position: relative;
 			width: auto;
 		}
 
@@ -216,10 +202,39 @@ body {
 			li {
 				position: relative;
 
-				&:hover {
+				&:hover, &.gmenu-active {
 					> ul {
-						z-index: 5;
+						z-index: 10;
 						display: block;
+						width: auto;
+						margin-left: 0;
+					}
+				}
+			}
+
+			> li {
+				float: left;
+
+				&:hover, &.gmenu-active {
+					> ul {
+						min-width: 100%;
+						top: 100%;
+						display: block;
+						position: absolute;
+					}
+
+				}
+
+				ul {
+					font-weight: normal;
+					display: none;
+
+					li {
+						&:hover, &.gmenu-active {
+							ul {
+								left:100%;
+							}
+						}
 					}
 				}
 			}
@@ -232,58 +247,6 @@ body {
 				}
 			}
 
-			> li {
-				float: left;
-
-				&:hover {
-					> ul {
-						top: 100%;
-						display: block;
-						position: absolute;
-					}
-
-					ul {
-						
-					}
-				}
-
-				ul {
-					font-weight: normal;
-					display: none;
-
-					li {
-						&:hover {
-							ul {
-								left:100%;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-@media (min-width: $desktop-size) {
-	.gmenu {
-		.gmenu-submenu {
-			&::before {
-				display: none;
-			}
-
-			> a {
-				position: relative;
-				padding-right: 2em;
-
-				&::after {
-					position: absolute;
-					right: 0em;
-					padding: 0 1em;
-					opacity: 0.25;
-					content: '+';
-					background-color: transparent;
-				}
-			}
 		}
 	}
 }

@@ -1,11 +1,7 @@
-body {
-  font-family: 'Open Sans';
-  height: 100%; }
-
 .gmenu {
   color: #eee; }
   .gmenu a {
-    background-color: #111122;
+    background-color: #070711;
     color: #eee;
     margin: auto;
     font-weight: bold;
@@ -14,7 +10,7 @@ body {
     outline: 0;
     display: block; }
     .gmenu a:hover {
-      background-color: #222244; }
+      background-color: #161635; }
     .gmenu a:active {
       background-color: black;
       color: #d4d4d4; }
@@ -31,7 +27,7 @@ body {
     list-style: none; }
     .gmenu li a {
       display: block; }
-    .gmenu li.gmenu-active::after {
+    .gmenu li.gmenu-active:after {
       content: '';
       display: block;
       position: fixed;
@@ -47,7 +43,14 @@ body {
       -ms-user-select: none;
       user-select: none;
       background: rgba(0, 0, 0, 0.5); }
-    .gmenu li.gmenu-submenu::before {
+    .gmenu li.gmenu-active > a {
+      background-color: #161635; }
+    .gmenu li.gmenu-active > ul {
+      z-index: 10;
+      margin-left: 10%;
+      width: 90%;
+      display: block; }
+    .gmenu li.gmenu-submenu:before {
       cursor: pointer;
       text-align: center;
       float: left;
@@ -55,13 +58,13 @@ body {
       content: '+';
       padding: 1em;
       margin-right: 1em;
-      background-color: #222244; }
+      background-color: #161635; }
   .gmenu .gmenu-burger {
     min-width: 1.4em;
     text-align: center;
     z-index: 20;
     display: inline-block; }
-  .gmenu.gmenu-active::after {
+  .gmenu.gmenu-active:after {
     content: '';
     display: block;
     position: fixed;
@@ -79,7 +82,7 @@ body {
     background: rgba(0, 0, 0, 0.5); }
   .gmenu.gmenu-active .gmenu-burger {
     z-index: 20; }
-    .gmenu.gmenu-active .gmenu-burger::after {
+    .gmenu.gmenu-active .gmenu-burger:after {
       content: 'Close menu';
       background-color: black;
       position: absolute;
@@ -96,74 +99,56 @@ body {
   .gmenu.gmenu-active > ul {
     z-index: 10;
     display: block; }
-    .gmenu.gmenu-active > ul li.gmenu-active > a {
-      background-color: #222244; }
-    .gmenu.gmenu-active > ul li.gmenu-active > ul {
-      z-index: 10;
-      margin-left: 10%;
-      width: 90%;
-      display: block; }
 
-@media (min-width: 768px) {
+@media (min-width: 400px) {
   .gmenu, .gmenu.gmenu-active {
     zoom: 1; }
-    .gmenu::after, .gmenu.gmenu-active::after {
+    .gmenu > ul:after, .gmenu.gmenu-active > ul:after {
       content: '';
       display: table;
       clear: both;
       position: static; }
   .gmenu.gmenu-active ul {
+    z-index: 10;
     padding: 0;
     background: transparent; }
   .gmenu .gmenu-burger {
     display: none; }
+  .gmenu li.gmenu-active:after {
+    display: none; }
   .gmenu li.gmenu-submenu {
     padding-right: 3.375em; }
-    .gmenu li.gmenu-submenu::before {
+    .gmenu li.gmenu-submenu:before {
       position: absolute;
       right: 0;
       margin-right: 0; }
-  .gmenu:hover > ul li:hover > ul {
-    min-width: 100%;
-    width: auto;
-    margin-left: 0; }
   .gmenu ul {
     display: block;
-    position: static;
+    position: relative;
     width: auto; }
   .gmenu > ul li {
     position: relative; }
-    .gmenu > ul li:hover > ul {
-      z-index: 5;
-      display: block; }
-  .gmenu > ul ul {
-    position: absolute; }
-    .gmenu > ul ul a {
+    .gmenu > ul li:hover > ul, .gmenu > ul li.gmenu-active > ul {
+      z-index: 10;
       display: block;
-      float: none; }
+      width: auto;
+      margin-left: 0; }
   .gmenu > ul > li {
     float: left; }
-    .gmenu > ul > li:hover > ul {
+    .gmenu > ul > li:hover > ul, .gmenu > ul > li.gmenu-active > ul {
+      min-width: 100%;
       top: 100%;
       display: block;
       position: absolute; }
     .gmenu > ul > li ul {
       font-weight: normal;
       display: none; }
-      .gmenu > ul > li ul li:hover ul {
-        left: 100%; } }
-@media (min-width: 992px) {
-  .gmenu .gmenu-submenu::before {
-    display: none; }
-  .gmenu .gmenu-submenu > a {
-    position: relative;
-    padding-right: 2em; }
-    .gmenu .gmenu-submenu > a::after {
-      position: absolute;
-      right: 0em;
-      padding: 0 1em;
-      opacity: 0.25;
-      content: '+';
-      background-color: transparent; } }
+      .gmenu > ul > li ul li:hover ul, .gmenu > ul > li ul li.gmenu-active ul {
+        left: 100%; }
+  .gmenu > ul ul {
+    position: absolute; }
+    .gmenu > ul ul a {
+      display: block;
+      float: none; } }
 
 /*# sourceMappingURL=gmenu.css.map */
