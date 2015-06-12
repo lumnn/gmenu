@@ -39,6 +39,12 @@ var gmenu = function gmenu( name, options ) {
 			return 1;
 		}
 
+		// if its a link with hash, an empty link
+		if( item.getAttribute('href') === '#' ) {
+			item = item.parentNode;	
+		}
+
+
 		// if submenu toggler was clicked
 		if( item.classList.contains( o.submenuClass ) ) {
 			event.preventDefault() ;
@@ -104,8 +110,17 @@ var gmenu = function gmenu( name, options ) {
 
 		var toReturn = ( currentMenu === until ) ? 1 : 0;
 
-		var parentMenu = currentMenu.parentNode.parentNode;
-		currentMenu = (parentMenu.classList.contains( o.activeClass )) ? parentMenu : undefined;
+		if( currentMenu === menuNode ) {
+			currentMenu = undefined;
+			return toReturn;
+		}
+
+		var parentMenu = currentMenu.parentNode;
+		while( !parentMenu.classList.contains( o.submenuClass )) {
+			parentMenu = parentMenu.parentNode;
+		}
+
+		currentMenu = parentMenu;
 
 		return toReturn;
 
