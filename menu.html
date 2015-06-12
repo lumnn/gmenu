@@ -284,6 +284,7 @@ v                  v
 	<p><code>li</code> elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of <code>li.gmenu-submenu</code> with padding or like I did with <code>:before</code></p>
 
 	<h2>Options</h2>
+	<p>To be honest, I don't belive that somebody will use that, but I wanted to have options in my plugin :)</p>
 	<code>var gmenu = gmenu('gmenu', {
 	scrollTo: 0,
 
@@ -292,19 +293,31 @@ v                  v
 	burgerClass: 'gmenu-burger',
 	togglesClass: 'gmenu-toggle-' + name,
 });</code>
+	<h3>scrollTo</h3>
+	<p>
+		Defines where to scroll when opening menu.
+	</p>
+
+	<h2>Known bugs</h2>
+	<ul>
+		<li>Closing submenu by taping parent element doesn't close menu because :hover is still applied</li>
+		<li>Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS</li>
+	</ul>
+
+	<p>Simple example of one-level menu.</p>
 
 	<!-- Simplest example -->
 	<div id='gmenu2' class='gmenu gmenu-submenu'>
 		<a class='gmenu-burger' href='#'>One level menu example</a>
 		<ul>
 			<li>
-				<a href=''>Jeden</a>
+				<a href=''>One</a>
 			</li>
 			<li>
-				<a href=''>Dwa</a>
+				<a href=''>Two</a>
 			</li>
 			<li>
-				<a href=''>Trzy</a>
+				<a href=''>Three</a>
 			</li>
 		</ul>
 	</div>

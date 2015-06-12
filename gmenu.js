@@ -8,7 +8,7 @@ var gmenu = function gmenu( name, options ) {
 		submenuClass: 'gmenu-submenu',
 		burgerClass: 'gmenu-burger',
 		togglesClass: 'gmenu-toggle-' + name,
-		scrollTo: -1,
+		scrollTo: 0,
 	};
 
 	var menuNode = document.getElementById(name);
