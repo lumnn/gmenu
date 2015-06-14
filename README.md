@@ -17,7 +17,8 @@ It works perfectly on touch and click devices with different screen sizes.
 
 
 It's up to you to add them, GMenu provides only basic functionality. If you'll see how plugin works then, customization for you should be easy.
-How it works?
+
+## How it works? ##
 
 Basically JS script is responsible for adding and removing gmenu-active class.
 
