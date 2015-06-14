@@ -127,5 +127,5 @@ Paste this before body ends
 It's important to paste it after menu structure, and after script loading
 
 	<script type="text/javascript">
-		gmenu('gmenu2');
+		gmenu('my-gmenu');
 	</script>
