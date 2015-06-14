@@ -25,8 +25,7 @@ var gmenu = function gmenu( name, options ) {
 
 	var scroll = function scroll() {
 		if( o.topScroll === true ) {
-			var rect = currentMenu.getBoundingClientRect();
-			window.scrollTo( 0, rect.x );
+			window.scrollTo( 0, 0 );
 		}
 	}
 

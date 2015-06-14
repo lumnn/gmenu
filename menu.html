@@ -17,6 +17,15 @@
 	p code, li code { display: inline; padding: 3px; }
 	.big { font-size: 1.5em; }
 	.info { padding-left: 1em; color: #667; font-style: italic; border-left: 1px solid #111; }
+
+	/* Makes burger to appear  */
+	@media (max-width: 479px) {
+		#gmenu .gmenu-burger {
+			position: fixed;
+			right: 10px;
+			top: 10px;
+		}
+	}
 </style>
 
 
@@ -35,7 +44,7 @@
 <body>
 
 	<!-- Complex menu example -->
-	<div id='gmenu' class='gmenu gmenu-submenu'>
+	<div id='gmenu' class='gmenu-1 gmenu gmenu-submenu'>
 		<a href='#' class='gmenu-burger'>=</a>
 		<ul>
 			<li>
@@ -324,7 +333,7 @@ v                  v
 	<h2 id="known">Known things (not a bugs, but should be mentioned)</h2>
 	<ul>
 		<li>Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS</li>
-		<li>When closing submenu collapsed view, top menu still has <code>.gmenu-active</code> class. One little bug that this causes is opened menu when viewport size changes to mobile view (ie. when phone rotates from landscape to portait, then menu will open)</li> 
+		<li>When closing submenu collapsed view, top menu still has <code>.gmenu-active</code> class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)</li> 
 	</ul>
 
 	<p>Simple example of one-level menu.</p>
