@@ -1,7 +1,7 @@
 # GMENU
 
 *   [Source code, downloads](https://github.com/suhy/gmenu.git)
-*   [Demo](http://kiwio.net)
+*   [Demo](http://kiwio.net/gmenu)
 
 Simple, pure JS solution for responsive menu.  
 It works perfectly on touch and click devices with different screen sizes.
