@@ -8,7 +8,7 @@ var gmenu = function gmenu( name, options ) {
 		submenuClass: 'gmenu-submenu',
 		burgerClass: 'gmenu-burger',
 		togglesClass: 'gmenu-toggle-' + name,
-		scrollTo: 0,
+		topScroll: true,
 	};
 
 	var menuNode = document.getElementById(name);
@@ -23,6 +23,13 @@ var gmenu = function gmenu( name, options ) {
 		}
 	}( options ));
 
+	var scroll = function scroll() {
+		if( o.topScroll === true ) {
+			var rect = currentMenu.getBoundingClientRect();
+			window.scrollTo( 0, rect.x );
+		}
+	}
+
 	// handling clicks in module
 	var gmenuEvent = function gmenuEvent( event ) {
 		var item = event.target;
@@ -32,6 +39,7 @@ var gmenu = function gmenu( name, options ) {
 
 			if( currentMenu === undefined ) {
 				api.openMenu( menuNode );
+				scroll();
 			} else {
 				api.closeAll();
 			}
@@ -39,9 +47,14 @@ var gmenu = function gmenu( name, options ) {
 			return 1;
 		}
 
-		// if its a link with hash, an empty link
-		if( item.getAttribute('href') === '#' ) {
-			item = item.parentNode;	
+		if ( item.tagName === "A" ) {
+			// if its a link with hash, an empty link
+			if( item.getAttribute('href') === '#' ) {
+				item = item.parentNode;	
+			} else {
+				api.closeAll();
+				return 1;
+			}
 		}
 
 
@@ -80,11 +93,6 @@ var gmenu = function gmenu( name, options ) {
 			nodes = nodes.parentNode;
 		}
 		menuNode.classList.add( o.activeClass );
-
-		// scroll
-		if( o.scrollTo >= 0 ) {
-			window.scrollTo( 0, o.scrollTo );
-		}
 
 		var openedSubmenus = menu.getElementsByClassName( o.activeClass );
 		if( openedSubmenus.length > 0 ) {
@@ -149,4 +157,10 @@ var gmenu = function gmenu( name, options ) {
 	};
 
 	return api;
+}
+
+if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+	document.body.className += 'touch';
+} else {
+	document.body.className += 'no-touch';
 }

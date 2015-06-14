@@ -9,8 +9,6 @@
     padding: 1em;
     outline: 0;
     display: block; }
-    .gmenu a:hover {
-      background-color: #161635; }
     .gmenu a:active {
       background-color: black;
       color: #d4d4d4; }
@@ -24,25 +22,10 @@
     width: 100%; }
   .gmenu li {
     display: block;
-    list-style: none; }
+    list-style: none;
+    background-color: #070711; }
     .gmenu li a {
       display: block; }
-    .gmenu li.gmenu-active:after {
-      content: '';
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 5;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      background: rgba(0, 0, 0, 0.5); }
     .gmenu li.gmenu-active > a {
       background-color: #161635; }
     .gmenu li.gmenu-active > ul {
@@ -59,12 +42,15 @@
       padding: 1em;
       margin-right: 1em;
       background-color: #161635; }
+    .gmenu li div {
+      padding: 1em;
+      background-color: #070711; }
   .gmenu .gmenu-burger {
     min-width: 1.4em;
     text-align: center;
     z-index: 20;
     display: inline-block; }
-  .gmenu.gmenu-active:after {
+  .gmenu.gmenu-active:after, .gmenu.gmenu-active .gmenu-active:after {
     content: '';
     display: block;
     position: fixed;
@@ -94,13 +80,15 @@
       z-index: 20;
       cursor: pointer; }
   .gmenu.gmenu-active ul {
-    background-color: black;
     padding-top: 3.375em; }
   .gmenu.gmenu-active > ul {
     z-index: 10;
-    display: block; }
+    display: block;
+    background-color: black; }
 
 @media (min-width: 400px) {
+  .gmenu a:hover {
+    background-color: #161635; }
   .gmenu, .gmenu.gmenu-active {
     zoom: 1; }
     .gmenu > ul:after, .gmenu.gmenu-active > ul:after {
@@ -108,31 +96,40 @@
       display: table;
       clear: both;
       position: static; }
+  .gmenu.gmenu-active:after,
+  .gmenu.gmenu-active .gmenu-active .gmenu-active:after {
+    display: none; }
+  .gmenu.gmenu-active .gmenu-active:after {
+    z-index: -1; }
   .gmenu.gmenu-active ul {
     z-index: 10;
     padding: 0;
     background: transparent; }
   .gmenu .gmenu-burger {
     display: none; }
-  .gmenu li.gmenu-active:after {
-    display: none; }
-  .gmenu li.gmenu-submenu {
-    padding-right: 3.375em; }
-    .gmenu li.gmenu-submenu:before {
-      position: absolute;
-      right: 0;
-      margin-right: 0; }
-  .gmenu ul {
-    display: block;
-    position: relative;
-    width: auto; }
-  .gmenu > ul li {
+  .gmenu li {
     position: relative; }
-    .gmenu > ul li:hover > ul, .gmenu > ul li.gmenu-active > ul {
+    .gmenu li.gmenu-submenu {
+      padding-right: 3.375em; }
+      .gmenu li.gmenu-submenu:before {
+        position: absolute;
+        right: 0;
+        margin-right: 0; }
+    .gmenu li div {
+      min-width: 300px; }
+    .gmenu li:hover, .gmenu li:hover > a, .gmenu li.gmenu-active, .gmenu li.gmenu-active > a {
+      background-color: #161635; }
+    .gmenu li:hover:after, .gmenu li.gmenu-active:after {
+      display: none; }
+    .gmenu li:hover > ul, .gmenu li.gmenu-active > ul {
       z-index: 10;
       display: block;
       width: auto;
       margin-left: 0; }
+  .gmenu ul {
+    display: block;
+    position: relative;
+    width: auto; }
   .gmenu > ul > li {
     float: left; }
     .gmenu > ul > li:hover > ul, .gmenu > ul > li.gmenu-active > ul {
@@ -149,6 +146,14 @@
     position: absolute; }
     .gmenu > ul ul a {
       display: block;
-      float: none; } }
+      float: none; }
+  .touch .gmenu li:not(.gmenu-active):hover > ul {
+    display: none; }
+  .no-touch .gmenu li.gmenu-active:after {
+    display: none; }
+  .no-touch .gmenu li.gmenu-active:not(:hover), .no-touch .gmenu li.gmenu-active:not(:hover) > a {
+    background-color: #070711; }
+  .no-touch .gmenu li.gmenu-active:not(:hover) > ul {
+    display: none; } }
 
 /*# sourceMappingURL=gmenu.css.map */

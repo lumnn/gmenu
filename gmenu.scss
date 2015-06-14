@@ -16,11 +16,6 @@ $desktop-size: 992px;
 		padding: 1em;
 		outline: 0;
 		display: block;
-
-		&:hover {
-			background-color: lighten($primary-color, 10);
-		}
-
 		&:active {
 			background-color: darken($primary-color, 10);
 			color: darken($secondary-color, 10);
@@ -40,30 +35,13 @@ $desktop-size: 992px;
 	li {
 		display: block;
 		list-style: none;
+		background-color: $primary-color;
 
 		a {
 			display: block;
 		}
 
 		&.gmenu-active {
-			&:after {
-				content: '';
-				display: block;
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 5;
-			    -webkit-touch-callout: none;
-			    -webkit-user-select: none;
-			    -khtml-user-select: none;
-			    -moz-user-select: none;
-			    -ms-user-select: none;
-			    user-select: none;
-			    background: rgba( 0, 0 , 0 , .5);
-			}
-
 			> a {
 				background-color: lighten($primary-color, 10);
 			}
@@ -88,6 +66,11 @@ $desktop-size: 992px;
 				background-color: lighten($primary-color, 10);
 			}
 		}
+
+		div {
+			padding: 1em;
+			background-color: $primary-color;
+		}
 	}
 
 	.gmenu-burger {
@@ -99,8 +82,9 @@ $desktop-size: 992px;
 
 	&.gmenu-active {
 
-		// Curtain
-		&:after {
+		// Curtains
+		&:after,
+		& .gmenu-active:after {
 			content: '';
 			display: block;
 			position: fixed;
@@ -136,14 +120,13 @@ $desktop-size: 992px;
 		}
 
 		ul {
-			background-color: darken($primary-color, 10);
 			padding-top: 3.375em;
-			// line height is 1.375 plus 1em paddings
 		}
 
 		> ul {
 			z-index: 10;
 			display: block;
+			background-color: darken($primary-color, 10);
 		}
 	}
 	
@@ -151,6 +134,12 @@ $desktop-size: 992px;
 
 @media (min-width: $tablet-size) {
 	.gmenu {
+		a {
+			&:hover {
+				background-color: lighten($primary-color, 10);
+			}
+		}
+
 		// clearfix
 		&, &.gmenu-active {
 			> ul:after {
@@ -163,6 +152,14 @@ $desktop-size: 992px;
 		}
 
 		&.gmenu-active {
+			&:after,
+			.gmenu-active .gmenu-active:after {
+				display: none;
+			}
+			.gmenu-active:after {
+				z-index: -1;
+			}
+
 			ul {
 				z-index: 10;
 				padding: 0;
@@ -175,11 +172,7 @@ $desktop-size: 992px;
 		}
 
 		li {
-			&.gmenu-active {
-				&:after {
-					display: none;
-				}
-			}
+			position: relative;
 
 			&.gmenu-submenu {
 				padding-right: 3.375em;
@@ -188,6 +181,28 @@ $desktop-size: 992px;
 					position: absolute;
 					right: 0;
 					margin-right: 0;
+				}
+			}
+
+			div {
+				min-width: 300px;
+			}
+
+			&:hover, &.gmenu-active {
+				&, > a {
+					background-color: lighten($primary-color, 10);
+				}
+
+				&:after {
+					display: none;
+				}
+
+				// Last opened menu
+				> ul {
+					z-index: 10;
+					display: block;
+					width: auto;
+					margin-left: 0;
 				}
 			}
 		}
@@ -199,23 +214,11 @@ $desktop-size: 992px;
 		}
 
 		> ul {
-			li {
-				position: relative;
-
-				&:hover, &.gmenu-active {
-					> ul {
-						z-index: 10;
-						display: block;
-						width: auto;
-						margin-left: 0;
-					}
-				}
-			}
-
 			> li {
 				float: left;
 
 				&:hover, &.gmenu-active {
+					// First level submenu
 					> ul {
 						min-width: 100%;
 						top: 100%;
@@ -230,7 +233,9 @@ $desktop-size: 992px;
 					display: none;
 
 					li {
+
 						&:hover, &.gmenu-active {
+							// Other level submenus
 							ul {
 								left:100%;
 							}
@@ -241,6 +246,7 @@ $desktop-size: 992px;
 
 			ul {
 				position: absolute;
+
 				a {
 					display: block;
 					float: none;
@@ -248,5 +254,37 @@ $desktop-size: 992px;
 			}
 
 		}
+
+		// Disable hovers on touch devices
+		.touch & {
+			.gmenu-active {
+
+			}
+			li:not(.gmenu-active):hover {
+				> ul {
+					display: none;
+				}
+			}
+		}
+
+		// Disable clicks on hover devices
+		.no-touch & {
+			li.gmenu-active {
+				&:after {
+					display: none;
+				}
+			}
+
+			li.gmenu-active:not(:hover) {
+				&, > a {
+					background-color: $primary-color;
+				}
+
+				> ul {
+					display: none;
+				}
+			}
+		}
+
 	}
 }

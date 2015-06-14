@@ -3,15 +3,18 @@
 <head>
 	<meta charset='utf-8' />
 	<title>GMenu - responsive menu</title>
+	<!-- You want to include meta tag below in your project -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+	/* Styles for page, excluding menu */
+	/* Don't copy this */
 	*{ box-sizing: border-box; }
 	body { oveflow-x: hidden; font-family: 'Open Sans', sans; color: #111; padding: 0 5%; }
 	h1 { font-size: 3.4em; }
 	p { max-width: 600px; }
 	code { background: #dde; white-space: pre; display: block; padding: 3%; overflow-x: scroll; }
-	p code { display: inline; padding: 3px; }
+	p code, li code { display: inline; padding: 3px; }
 	.big { font-size: 1.5em; }
 	.info { padding-left: 1em; color: #667; font-style: italic; border-left: 1px solid #111; }
 </style>
@@ -36,26 +39,29 @@
 		<a href='#' class='gmenu-burger'>=</a>
 		<ul>
 			<li>
-				<a href=''>Single</a>
+				<a href='#title'>GMenu</a>
 			</li>
 			<li class='gmenu-submenu'>
-				<a href='#'>Big</a>
+				<a href='#'>Features</a>
 				<ul>
 					<li>
-						<a href=''>Albert</a>
+						<a href=''>Lightweight</a>
 					</li>
 					<li class='gmenu-submenu'>
-						<a href='#'>Bartosz</a>
+						<a href='#'>Responsive</a>
 						<ul>
-							<li><a href=''>S1</a></li>
-							<li><a href=''>S2</a></li>
+							<li><a href=''>Touch devices</a></li>
+							<li><a href=''>Desktops</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href=''>Czesław</a>
+						<a href=''>Touch friendly</a>
+					</li>
+					<li>
+						<a href=''>Fast</a>
 					</li>
 					<li class='gmenu-submenu'>
-						<a href=''>Dominik</a>
+						<a href=''>Multi-level support</a>
 						<ul>
 							<li>
 								<a href=''>Kanapka</a>
@@ -153,25 +159,30 @@
 							</li>
 						</ul>
 					</li>
-					<li>
-						<a href=''>Edward</a>
+					<li class='gmenu-submenu'>
+						<a href=''>Menu toggle with link at same time</a>
+						<ul>
+							<div>
+								Means that you can have element with link and at the same time it can have submenu - that's why I use pluses for opening and closing submenus
+							</div>
+						</ul>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href=''>Third</a>
+				<a href='#animations'>Animations</a>
 			</li>
 			<li>
-				<a href=''>Fourth</a>
+				<a href='#howitworks'>How it works?</a>
 			</li>
 			<li>
-				<a href=''>Fifth</a>
+				<a href='#options'>Options</a>
 			</li>
 			<li>
-				<a href=''>Sixth</a>
+				<a href='#known'>Known things</a>
 			</li>
 			<li class='gmenu-submenu'>
-				<a href=''>Wide example - wider - wider - mooooooooooore</a>
+				<a href=''>Wide menu example with lot of submenu elements</a>
 				<ul>
 					<li>
 						<a href=''>Kanapka</a>
@@ -228,7 +239,7 @@
 	<!-- End of complex example -->
 
 	<article>
-		<h1>GMENU</h1>
+		<h1 id="title">GMENU</h1>
 		<p class='big' >
 			Simple, pure JS solution for responsive menu.<br/>It works perfectly on touch and click devices with different screen sizes.
 		</p>
@@ -238,7 +249,7 @@
 		IE comment, but <b>menu still uses CSS hover selector to open submenus</b>.  There is probably nobody using that browser on device with touch.
 	</p>
 
-	<h2>Feautures</h2>
+	<h2 id="features">Features</h2>
 	<ul>
 		<li>Lightweight - 4kB</li>
 		<li>Responsive</li>
@@ -248,16 +259,28 @@
 		<li>Submenus with link</li>
 	</ul>
 
-	<h3>Animations and other fancy things</h3>
+	<h3 id="animations">Animations and other fancy things</h3>
 	<p>
-	It's up to you to add them, GMenu provides only basic functionality.
+	It's up to you to add them, GMenu provides only basic functionality. If you'll see how plugin works then, customization for you should be easy.
 	</p>
 
-	<h2>How it works?</h2>
-	<p>For tablet size and desktop size there is used :hover selector to open menus.</p>
-	<p>For tablet and phones there is displayed <code>a.gmenu-burger</code>. Clicking it adds class <code>gmenu-active</code> to <code>.gmenu</code>. Another click removes all <code>gmenu-active</code> classes.
+	<h2 id="howitworks">How it works?</h2>
+	<p>Basically JS script is responsible for adding and removing <code>gmenu-active</code> class.
 	</p>
-	<p class="info">When top-level menu has <code>.gmenu-active</code> class, <code>.gmenu-burger:after</code> is used to display "Close menu" box</p> 
+	<p>
+	Clicking on <code>.gmenu-submenu</code> toggles <code>gmenu-active</code> class in it, and adds same class for all parent elements with <code>gmenu-submenu</code> class.
+	</p>
+	<p>
+		Clicking on <code>.gmenu-burger</code> opens top level menu or closes all if menu's open.
+	</p>
+
+	<h3>Rest of magic is done by CSS</h3>
+
+	<p>There're two types of menu collapsed, expanded. You can choose in CSS min-width for expanded.</p>
+	<p>For expanded there is used :hover selector to open menus.</p>
+	<p>For collapsed there is displayed <code>a.gmenu-burger</code>. Clicking it adds class <code>gmenu-active</code> to <code>.gmenu</code>. Another click removes all <code>gmenu-active</code> classes.
+	</p>
+	<p class="info">When top-level menu has <code>.gmenu-active</code> class, <code>.gmenu-burger:after</code> is used to display "Close menu" box in collapsed view</p> 
 	<p><code>li.gmenu-submenu</code> tells script that this element has submenu. Clicking on it toggles <code>.gmenu-active</code> classes</p>
 <pre>
 Fig. 1
@@ -283,25 +306,25 @@ v                  v
 
 	<p><code>li</code> elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of <code>li.gmenu-submenu</code> with padding or like I did with <code>:before</code></p>
 
-	<h2>Options</h2>
+	<h2 id="options">Options</h2>
 	<p>To be honest, I don't belive that somebody will use that, but I wanted to have options in my plugin :)</p>
 	<code>var gmenu = gmenu('gmenu', {
-	scrollTo: 0,
+	topScroll: true,
 
 	activeClass: 'gmenu-active',
 	submenuClass: 'gmenu-submenu',
 	burgerClass: 'gmenu-burger',
 	togglesClass: 'gmenu-toggle-' + name,
 });</code>
-	<h3>scrollTo</h3>
+	<h3>topScroll</h3>
 	<p>
-		Defines where to scroll when opening menu.
+		Defines whethner scroll to opened menu position when clicking burger. In default CSS mobile menu opens allways on document top, so if burger is far down, then after open menu won't be visible
 	</p>
 
-	<h2>Known bugs</h2>
+	<h2 id="known">Known things (not a bugs, but should be mentioned)</h2>
 	<ul>
-		<li>Closing submenu by taping parent element doesn't close menu because :hover is still applied</li>
 		<li>Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS</li>
+		<li>When closing submenu collapsed view, top menu still has <code>.gmenu-active</code> class. One little bug that this causes is opened menu when viewport size changes to mobile view (ie. when phone rotates from landscape to portait, then menu will open)</li> 
 	</ul>
 
 	<p>Simple example of one-level menu.</p>
@@ -323,7 +346,7 @@ v                  v
 	</div>
 	<!-- End of simplest example -->
 
-
+	<small>https://www.youtube.com/watch?feature=player_detailpage&v=KTSSjko6awo#t=1871</small>
 
 
 <!-- Module link -->
