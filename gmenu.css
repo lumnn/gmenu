@@ -90,7 +90,7 @@
     display: block;
     background-color: black; }
 
-@media (min-width: 479px) {
+@media (min-width: 767px) {
   .gmenu a:hover {
     background-color: #161635; }
   .gmenu, .gmenu.gmenu-active {
