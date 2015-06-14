@@ -6,7 +6,7 @@
 Simple, pure JS solution for responsive menu.  
 It works perfectly on touch and click devices with different screen sizes.
 
-For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so hide it in IE comment. Anyway **menu still uses CSS hover selector to open submenus**. There is probably nobody using that browser on device with touch.
+For IE9 there is one required dependency, and for IE8 two. In IE8 script wont't run - so hide it in IE comment. Anyway **menu still uses CSS hover selector to open submenus**. There is probably nobody using that browser on device with touch.
 
 ## Features
 
