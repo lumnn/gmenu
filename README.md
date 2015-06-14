@@ -6,7 +6,7 @@ It works perfectly on touch and click devices with different screen sizes.
 > For IE9 there is one required dependency, and for IE8 another two. Anyway in IE8 script wont't run - so better hide it in IE comment, but menu still uses CSS hover selector to open submenus. There is probably nobody using that browser on device with touch.
 
 ## Features ##
-* Lightweight - 4kB
+* Lightweight - 1.6 kB minified JS
 * Responsive
 * Touch friendly
 * Fast
@@ -55,26 +55,29 @@ li.gmenu-submenu tells script that this element has submenu. Clicking on it togg
 	+------------+----------> a element
 
 
-	* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
+* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
 
 li elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of li.gmenu-submenu with padding or like I did with :before
 
 ## Options ##
 
 To be honest, I don't belive that somebody will use that, but I wanted to have options in my plugin :)
-var gmenu = gmenu('gmenu', {
-	topScroll: true,
+	var gmenu = gmenu('gmenu', {
+		topScroll: true,
 
-	activeClass: 'gmenu-active',
-	submenuClass: 'gmenu-submenu',
-	burgerClass: 'gmenu-burger',
-	togglesClass: 'gmenu-toggle-' + name,
-});
+		activeClass: 'gmenu-active',
+		submenuClass: 'gmenu-submenu',
+		burgerClass: 'gmenu-burger',
+		togglesClass: 'gmenu-toggle-' + name,
+	});
+
 ### topScroll ###
 
 Defines whethner scroll to opened menu position when clicking burger. In default CSS mobile menu opens allways on document top, so if burger is far down, then after open menu won't be visible
 
 ## Known things (not a bugs, but should be mentioned) ##
 
-    Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS
-    When closing submenu collapsed view, top menu still has .gmenu-active class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)
+* 
+	Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS
+*
+	When closing submenu collapsed view, top menu still has .gmenu-active class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)
