@@ -55,13 +55,14 @@ li.gmenu-submenu tells script that this element has submenu. Clicking on it togg
 	+------------+----------> a element
 
 
-* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
+\* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
 
 li elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of li.gmenu-submenu with padding or like I did with :before
 
 ## Options ##
 
 To be honest, I don't belive that somebody will use that, but I wanted to have options in my plugin :)
+
 	var gmenu = gmenu('gmenu', {
 		topScroll: true,
 
@@ -77,7 +78,6 @@ Defines whethner scroll to opened menu position when clicking burger. In default
 
 ## Known things (not a bugs, but should be mentioned) ##
 
-* 
-	Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS
-*
-	When closing submenu collapsed view, top menu still has .gmenu-active class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)
+*	Some of you may say that top level menu shouldn't have gmenu-submenu class, because it's obvious, but I didn't want to make checks for that in JS
+
+*	When closing submenu collapsed view, top menu still has .gmenu-active class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)
