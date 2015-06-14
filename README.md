@@ -10,7 +10,7 @@ For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script 
 
 ## Features
 
-*   Lightweight - 4kB
+*   Lightweight - 2kB
 *   Responsive
 *   Touch friendly
 *   Fast
