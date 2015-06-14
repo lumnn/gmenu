@@ -129,7 +129,8 @@
       z-index: 10;
       display: block;
       width: auto;
-      margin-left: 0; }
+      margin-left: 0;
+      min-width: 100%; }
   .gmenu ul {
     display: block;
     position: relative;

@@ -28,17 +28,8 @@
 	}
 </style>
 
-
-	<!-- CSS file -->
+	<!-- GMenu CSS -->
 	<link rel="stylesheet" type="text/css" href="gmenu.css">
-
-<!-- HTML5 shim, Respond.js for IE8 support of HTML5 elements, media queries -->
-<!--[if lt IE 9]>
-  	<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  	<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-
 
 </head>
 <body>
@@ -255,8 +246,7 @@
 		</p>
 	</article>
 	<p class='info'>
-		For IE9 there is one required dependency, and for IE8 another two. Anyway in IE8 script wont't run - so better hide it in 
-		IE comment, but <b>menu still uses CSS hover selector to open submenus</b>.  There is probably nobody using that browser on device with touch.
+		For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so better hide it in IE comment. Anyway <b>menu still uses CSS hover selector to open submenus</b>.  There is probably nobody using that browser on device with touch.
 	</p>
 
 	<h2 id="features">Features</h2>
@@ -337,6 +327,32 @@ v                  v
 		<li>When closing submenu collapsed view, top menu still has <code>.gmenu-active</code> class. This makes menu opening when viewport size changes to collapsed view (ie. when phone rotates from landscape to portait, then menu will open)</li> 
 	</ul>
 
+	<h2>Copy - paste</h2>
+	<h4>CSS file</h4>
+	<p>To put inside html tag</p>
+	<p>To save requests I recommend to copy content of gmenu.css to your css file</p>
+<code>
+&lt;!-- GMenu CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;gmenu.css&quot;&gt;
+</code>
+
+	<h4>Menu structure</h4>
+<code>
+&lt;div id='my-gmenu' class='gmenu gmenu-submenu'&gt;<br/>	&lt;a class='gmenu-burger' href='#'&gt;Burger&lt;/a&gt;<br/>	&lt;ul&gt;<br/>		&lt;li class=&quot;gmenu-submenu&quot;&gt;<br/>			&lt;a href='#'&gt;One&lt;/a&gt;<br/>			&lt;ul&gt;<br/>				&lt;li&gt;&lt;a href='#'&gt;Lorem&lt;/a&gt;&lt;/li&gt;<br/>				&lt;li&gt;&lt;a href='#'&gt;ipsum&lt;/a&gt;&lt;/li&gt;<br/>				&lt;li&gt;&lt;a href='#'&gt;dolor&lt;/a&gt;&lt;/li&gt;<br/>			&lt;/ul&gt;<br/>		&lt;/li&gt;<br/>		&lt;li&gt;<br/>			&lt;a href='#'&gt;Two&lt;/a&gt;<br/>		&lt;/li&gt;<br/>		&lt;li&gt;<br/>			&lt;a href='#'&gt;Three&lt;/a&gt;<br/>		&lt;/li&gt;<br/>	&lt;/ul&gt;<br/>&lt;/div&gt;
+</code>
+	<h4>Load scripts</h4>
+	<p>Paste this before body ends</p>
+<code>
+&lt;!-- IE9 classList support --&gt;<br/>&lt;!--[if IE 9]&gt;<br/>	&lt;script type=&quot;text/javascript&quot; src='classList.min.js'&gt;&lt;/script&gt;<br/>&lt;![endif]--&gt;<br/>&lt;!--[if gte IE 9]&gt;&lt;!--&gt;<br/>	&lt;script type=&quot;text/javascript&quot; src='gmenu.js'&gt;&lt;/script&gt;<br/>&lt;!--&lt;![endif]--&gt;
+</code>
+	<h4>Run the script</h4>
+	<p>It's important to paste it after menu structure, and after script loading</p>
+<code>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	gmenu('gmenu2');
+&lt;/script&gt;
+</code>
+
 	<p>Simple example of one-level menu.</p>
 
 	<!-- Simplest example -->
@@ -359,17 +375,17 @@ v                  v
 	<small>https://www.youtube.com/watch?feature=player_detailpage&v=KTSSjko6awo#t=1871</small>
 
 
-<!-- Module link -->
-<!-- ########### -->
+<!-- Module links -->
 
 <!-- IE dependency -->
-<!--[if lte IE 9]>
+<!--[if IE 9]>
 	<script type="text/javascript" src='classList.min.js'></script>
 <![endif]-->
-<script type="text/javascript" src='gmenu.js'></script>
+<!--[if gte IE 9]><!-->
+	<script type="text/javascript" src='gmenu.js'></script>
+<!--<![endif]-->
 
 <!-- end modile -->
-<!-- ########### -->
 
 <!-- Enabling menus -->
 
