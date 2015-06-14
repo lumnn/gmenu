@@ -64,7 +64,9 @@ When top-level menu has `.gmenu-active` class, `.gmenu-burger:after` is used to 
 
 To be honest, I don't belive that somebody will use that, but I wanted to have options in my plugin :)
 
-`var gmenu = gmenu('gmenu', { topScroll: true, activeClass: 'gmenu-active', submenuClass: 'gmenu-submenu', burgerClass: 'gmenu-burger', togglesClass: 'gmenu-toggle-' + name, });`
+	var gmenu = gmenu('gmenu', {
+		topScroll: true,
+	});	
 
 ### topScroll
 
