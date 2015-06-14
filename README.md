@@ -1,12 +1,12 @@
 # GMENU
 
-* [Source code, downloads](https://github.com/suhy/gmenu.git)
-* [Demo](http://kiwio.net/gmenu)
+*   [Source code, downloads](https://github.com/suhy/gmenu.git)
+*   [Demo](http://kiwio.net)
 
 Simple, pure JS solution for responsive menu.  
 It works perfectly on touch and click devices with different screen sizes.
 
-For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so better hide it in IE comment. Anyway **menu still uses CSS hover selector to open submenus**. There is probably nobody using that browser on device with touch.
+For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so hide it in IE comment. Anyway **menu still uses CSS hover selector to open submenus**. There is probably nobody using that browser on device with touch.
 
 ## Features
 
@@ -23,7 +23,7 @@ It's up to you to add them, GMenu provides only basic functionality. If you'll s
 
 ## How it works?
 
-Basically JS script is responsible for adding and removing `gmenu-active` class.
+Basically JS script is responsible for adding and removing `gmenu-active` class same way as `:hover` works.
 
 Clicking on `.gmenu-submenu` toggles `gmenu-active` class in it, and adds same class for all parent elements with `gmenu-submenu` class.
 
@@ -56,8 +56,7 @@ When top-level menu has `.gmenu-active` class, `.gmenu-burger:after` is used to 
 	^            ^
 	+------------+----------> a element
 
-
-\* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
+	* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...
 
 `li` elements have a link, so when link is clicked module doesn't prevents it's behavior, so browser will follow link. To provide open/close submenu it's necesary to show a bit of `li.gmenu-submenu` with padding or like I did with `:before`
 
@@ -113,15 +112,18 @@ To save requests I recommend to copy content of gmenu.css to your css file
 
 Paste this before body ends
 
+	<!-- IE9 classList support -->  
 	<!--[if IE 9]>  
-		<script type="text/javascript" src='classList.min.js'></script>  
-	<![endif]-->  
+	<script type="text/javascript" src='classList.min.js'></script>  
+	<![endif]-->
 	<!--[if gte IE 9]><!-->  
-		<script type="text/javascript" src='gmenu.js'></script>  
+	<script type="text/javascript" src='gmenu.js'></script>  
 	<!--<![endif]-->
 
 #### Run the script
 
 It's important to paste it after menu structure, and after script loading
 
-`<script type="text/javascript"> gmenu('gmenu2'); </script>`
+	<script type="text/javascript">
+		gmenu('gmenu2');
+	</script>

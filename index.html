@@ -240,13 +240,17 @@
 
 	<article>
 		<h1 id="title">GMENU</h1>
-		<a href='https://github.com/suhy/gmenu.git'>Source code, downloads</a>
+		<ul>
+			<li><a href='https://github.com/suhy/gmenu.git'>Source code, downloads</a></li>
+			<li><a href="http://kiwio.net">Demo</a></li>
+		</ul>
+		
 		<p class='big' >
 			Simple, pure JS solution for responsive menu.<br/>It works perfectly on touch and click devices with different screen sizes.
 		</p>
 	</article>
 	<p class='info'>
-		For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so better hide it in IE comment. Anyway <b>menu still uses CSS hover selector to open submenus</b>.  There is probably nobody using that browser on device with touch.
+		For IE9 there is one required dependency, and for IE8 two. Anyway in IE8 script wont't run - so hide it in IE comment. Anyway <b>menu still uses CSS hover selector to open submenus</b>. There is probably nobody using that browser on device with touch.
 	</p>
 
 	<h2 id="features">Features</h2>
@@ -265,7 +269,7 @@
 	</p>
 
 	<h2 id="howitworks">How it works?</h2>
-	<p>Basically JS script is responsible for adding and removing <code>gmenu-active</code> class.
+	<p>Basically JS script is responsible for adding and removing <code>gmenu-active</code> class same way as <code>:hover</code> works.
 	</p>
 	<p>
 	Clicking on <code>.gmenu-submenu</code> toggles <code>gmenu-active</code> class in it, and adds same class for all parent elements with <code>gmenu-submenu</code> class.
@@ -299,8 +303,6 @@ v                  v
 
 ^            ^
 +------------+----------> a element
-
-
 </pre>
 	<p class="info">* - Yes! It's :before, because on mobile it's displayed on the left side. Mobile first, saving bytes, blah, blah, blah...</p>
 
