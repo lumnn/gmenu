@@ -1,7 +1,7 @@
 $primary-color: #070711;
 $secondary-color: #eee;
 
-$tablet-size: 767px;
+$expanded-size: 767px;
 
 .gmenu {
 	color: $secondary-color;
@@ -136,7 +136,7 @@ $tablet-size: 767px;
 	
 }
 
-@media (min-width: $tablet-size) {
+@media (min-width: $expanded-size) {
 	.gmenu {
 		a {
 			&:hover {
